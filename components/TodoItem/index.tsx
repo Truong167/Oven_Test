@@ -15,11 +15,11 @@ const TodoItem: React.FC<ITodo> = ({ name, isComplete, id }) => {
   };
 
   return (
-    <Row className="flex items-center justify-between w-full p-2 h-12 hover:bg-slate-100 rounded-md">
+    <Row className="grid grid-cols-custom-2 items-center justify-between gap-x-4 w-full p-2 h-12 hover:bg-slate-100 rounded-md">
       <Checkbox
         className={`text-xl lg:text-lg ${
           isComplete && "line-through"
-        } whitespace-nowrap overflow-hidden text-ellipsis w-[300px]`}
+        } whitespace-nowrap overflow-hidden text-ellipsis`}
         checked={isComplete}
         onChange={onChange}
       >
