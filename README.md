@@ -19,11 +19,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 ## Folder Structure
-
+```
 ├── /app # manage routing
-│ ├── /page.tsx home page
-│ ├── /layout.tsx # Root Layout
-│ └── ... # Other pages
+    ├── /page.tsx home page
+    ├── /layout.tsx # Root Layout
+    └── ... # Other pages
 ├── /public # Static resources, such as images or other files
 ├── /components # Reusable React components
 ├── /context # manage context
@@ -33,6 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ├── /package.json # Project information and dependencies
 ├── /typing.d.ts # define global type or interface for entire application
 └── README.md # Project documentation
+```
 
 ## Libraries used in the project
   - Antd
