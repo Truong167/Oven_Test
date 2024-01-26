@@ -1,20 +1,22 @@
 "use client";
 import { useTodoContext } from "@/context/todoContext";
-import { Button, Col, Input, Row } from "antd";
-import React, { useState } from "react";
+import { Button, Col, Input, InputRef, Row } from "antd";
+import React, { useRef, useState } from "react";
 
 const CreateTask = () => {
   const { addTask } = useTodoContext();
   const [task, setTask] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const inputRef = useRef<InputRef>(null);
 
   const handleChangeTask = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTask(e.target.value);
   };
 
   const handleAddTask = () => {
-    if (!task) {
+    if (!task && inputRef.current) {
       setError("Please type your task");
+      inputRef.current.focus();
       return;
     }
     addTask(task);
@@ -25,6 +27,7 @@ const CreateTask = () => {
     <Row className="w-full" gutter={[16, 0]}>
       <Col span={18}>
         <Input
+          ref={inputRef}
           className="w-full"
           placeholder="Type your task"
           status={`${error && "error"}`}
@@ -41,7 +44,11 @@ const CreateTask = () => {
           Add
         </Button>
       </Col>
-      <Col span={24}>{error && <p className="text-red-500">{error}</p>}</Col>
+      {error && (
+        <Col span={24}>
+          <p className="text-red-500">{error}</p>
+        </Col>
+      )}
     </Row>
   );
 };

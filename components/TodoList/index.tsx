@@ -21,7 +21,7 @@ const TodoList = ({ todoList }: { todoList: Todo[] }) => {
           />
         ))
       ) : (
-        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE}/>
+        <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
       )}
     </div>
   );

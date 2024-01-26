@@ -10,16 +10,6 @@ const initialState = {
   searchResult: [] as ITodo[],
 };
 
-export type TodoContextType = {
-  todoList: ITodo[];
-  search: string;
-  searchResult: ITodo[]
-  addTask: (name: string) => void;
-  deleteTask: (id: string) => void;
-  toggleTask: (id: string) => void
-  searchTask: (term: string) => void
-};
-
 const TodoContext = createContext<TodoContextType | undefined>(undefined);
 
 const TodoProvider = ({ children }: { children: React.ReactNode }) => {
