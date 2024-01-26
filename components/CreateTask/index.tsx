@@ -23,6 +23,16 @@ const CreateTask = () => {
     setError("");
     setTask("");
   };
+
+  const handleClick = () => {
+    handleAddTask();
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleAddTask();
+    }
+  };
   return (
     <Row className="w-full" gutter={[16, 0]}>
       <Col span={18}>
@@ -33,13 +43,14 @@ const CreateTask = () => {
           status={`${error && "error"}`}
           value={task}
           onChange={(e) => handleChangeTask(e)}
+          onKeyDown={handleKeyPress}
         />
       </Col>
       <Col span={6}>
         <Button
           className="w-full bg-blue-600 text-white"
           type="primary"
-          onClick={handleAddTask}
+          onClick={handleClick}
         >
           Add
         </Button>
